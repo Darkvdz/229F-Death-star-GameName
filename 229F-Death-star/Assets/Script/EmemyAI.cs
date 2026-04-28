@@ -18,10 +18,12 @@ public class EnemyAI : MonoBehaviour
     private float nextFireTime = 0f;
     private bool isFacingRight = true;
 
-    // ?? 1. เพิ่มฟังก์ชัน Start เพื่อหา Player อัตโนมัติเวลาถูกสปอว์น ??
+    private Animator anim;
+
     void Start()
     {
-        // ค้นหาวัตถุที่มี Tag ว่า "Player" ในฉาก
+        anim = GetComponent<Animator>();
+
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
         {
@@ -35,22 +37,31 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-        if (player == null) return; // ถ้าหาไม่เจอจริงๆ ถึงจะยืนนิ่ง
+        if (player == null) return; 
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
         if (distanceToPlayer <= enemyEyeRange && distanceToPlayer > shootRange)
         {
             ChasePlayer();
+
+            if (anim != null) anim.SetBool("walk", true);
         }
         else if (distanceToPlayer <= shootRange)
         {
             LookAtPlayer();
+
+            if (anim != null) anim.SetBool("walk", false);
 
             if (Time.time >= nextFireTime)
             {
                 Shoot();
                 nextFireTime = Time.time + 1f / fireRate;
             }
+        }
+        else
+        {
+            if (anim != null) anim.SetBool("walk", false);
         }
     }
 
@@ -98,6 +109,8 @@ public class EnemyAI : MonoBehaviour
 
     void Shoot()
     {
+        if (anim != null) anim.SetTrigger("attack");
+
         if (bulletPrefab == null || firePoint == null) return;
 
         GameObject go = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);

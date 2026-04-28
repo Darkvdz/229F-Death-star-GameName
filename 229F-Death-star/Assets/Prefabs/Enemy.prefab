@@ -200,7 +200,7 @@ MonoBehaviour:
   shootRange: 1.93
   bulletPrefab: {fileID: 8050424847253734221, guid: 6c66a5e30c3a59c439e237299c17f6e5, type: 3}
   firePoint: {fileID: 2248493058050538763}
-  fireRate: 10
+  fireRate: 5
   heightMin: 3
   heightMax: 4
 --- !u!1 &4218435978190295060

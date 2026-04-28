@@ -26,7 +26,6 @@ public class PlayerMovement2D : MonoBehaviour
 
     private int jumpCount;
     private bool isGrounded = false;
-    //public bool onIce = false;
 
     private void Awake()
     {
@@ -44,7 +43,6 @@ public class PlayerMovement2D : MonoBehaviour
         if (Time.timeScale == 0f) return;
         var moveInput = moveAction.ReadValue<Vector2>();
 
-        //if (!onIce)
         {
             rb.linearVelocity = new Vector2(moveInput.x * speed, rb.linearVelocity.y);
         }
@@ -117,24 +115,7 @@ public class PlayerMovement2D : MonoBehaviour
             if (anim != null) anim.SetBool("isGrounded", isGrounded);
 
         }
-
-        //if (collision.gameObject.CompareTag("IcePlatform"))
-        //{
-        //    onIce = true; 
-        //}
     }
-
-   
-    //private void OnCollisionExit2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag("IcePlatform"))
-    //    {
-    //        onIce = false; 
-    //    }
-    //}
-
-
-
 
 }
 

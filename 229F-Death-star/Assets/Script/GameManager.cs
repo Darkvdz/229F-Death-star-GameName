@@ -8,11 +8,10 @@ public class GameManager : MonoBehaviour
 
     [Header("GameManager Setting")]
     public bool isGameOver;
-    // ถ้าอยากให้คะแนนคือ "ความสูง" ที่กระโดดได้ เดี๋ยวเราค่อยมาเขียนระบบอัปเดตคะแนนตามแกน Y ของผู้เล่นทีหลังครับ
     [SerializeField] private int currentScore = 0;
 
     [Header("UI Reference")]
-    [SerializeField] private TextMeshProUGUI scoreText; // เปลี่ยนจากเวลาเป็นโชว์คะแนน/ความสูง
+    [SerializeField] private TextMeshProUGUI scoreText; 
     [SerializeField] private GameObject winPanel;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject creditsPanel;
@@ -30,7 +29,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        // ปิดหน้าต่าง UI ทั้งหมดตอนเริ่มเกม
         if (winPanel != null) winPanel.SetActive(false);
         if (gameOverPanel != null) gameOverPanel.SetActive(false);
         if (creditsPanel != null) creditsPanel.SetActive(false);
@@ -55,13 +53,11 @@ public class GameManager : MonoBehaviour
         if (scoreText != null) scoreText.text = "Score: " + currentScore;
     }
 
-    // ฟังก์ชันนี้เอาไว้ให้ PlayerHealth เรียกใช้ตอนผู้เล่นตาย
     public void GameOver()
     {
         EndGame(false);
     }
 
-    // ฟังก์ชันเอาไว้เรียกตอนเข้าเส้นชัย (ยอดหอคอย)
     public void GameWin()
     {
         EndGame(true);
@@ -70,7 +66,7 @@ public class GameManager : MonoBehaviour
     void EndGame(bool isWin)
     {
         isGameOver = true;
-        Time.timeScale = 0f; // หยุดเวลาในเกม
+        Time.timeScale = 0f; 
 
         if (audioSource != null) audioSource.Stop();
 
