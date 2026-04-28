@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // จำเป็นต้องมีบรรทัดนี้ เพื่อใช้คำสั่งโหลด Scene (รีสตาร์ทด่าน)
 
 public class PlayerHealth : MonoBehaviour
 {
