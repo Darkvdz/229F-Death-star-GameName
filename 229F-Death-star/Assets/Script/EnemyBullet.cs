@@ -9,8 +9,8 @@ public class EnemyBullet : MonoBehaviour
        
         if (collision.gameObject.CompareTag("Player"))
         {
-           
-            Debug.Log("กระสุนโดนผู้เล่น!");
+
+            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
             Destroy(gameObject); 
         }
         

@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -25,6 +26,7 @@ public class PlayerMovement2D : MonoBehaviour
 
     private int jumpCount;
     private bool isGrounded = false;
+    public bool onIce = false;
 
     private void Awake()
     {
@@ -39,8 +41,13 @@ public class PlayerMovement2D : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0f) return;
         var moveInput = moveAction.ReadValue<Vector2>();
-        rb.linearVelocity = new Vector2(moveInput.x * speed, rb.linearVelocity.y);
+
+        if (!onIce)
+        {
+            rb.linearVelocity = new Vector2(moveInput.x * speed, rb.linearVelocity.y);
+        }
 
         if (anim != null)
         {
@@ -113,6 +120,22 @@ public class PlayerMovement2D : MonoBehaviour
             isGrounded = true;
             if (anim != null) anim.SetBool("isGrounded", isGrounded);
 
+        }
+
+        if (collision.gameObject.CompareTag("IcePlatform"))
+        {
+            onIce = true; // บอกสคริปต์ว่ายืนบนน้ำแข็งแล้วนะ (หยุดโค้ดเดิน ปล่อยแท่นผลัก)
+        }
+    }
+
+   
+
+    // พอเท้าหลุดออกจากแท่นน้ำแข็ง (กระโดด หรือ ตกขอบ)
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("IcePlatform"))
+        {
+            onIce = false; // กลับมาเดินปกติได้
         }
     }
 
