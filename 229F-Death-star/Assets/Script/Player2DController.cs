@@ -26,7 +26,7 @@ public class PlayerMovement2D : MonoBehaviour
 
     private int jumpCount;
     private bool isGrounded = false;
-    public bool onIce = false;
+    //public bool onIce = false;
 
     private void Awake()
     {
@@ -44,7 +44,7 @@ public class PlayerMovement2D : MonoBehaviour
         if (Time.timeScale == 0f) return;
         var moveInput = moveAction.ReadValue<Vector2>();
 
-        if (!onIce)
+        //if (!onIce)
         {
             rb.linearVelocity = new Vector2(moveInput.x * speed, rb.linearVelocity.y);
         }
@@ -95,13 +95,9 @@ public class PlayerMovement2D : MonoBehaviour
 
     void Attack()
     {
-        // 1. เล่นแอนิเมชันฟันดาบ
+        
         if (anim != null) anim.SetTrigger("Attack");
-
-        // 2. เช็ควงกลมหาศัตรูแค่ "ตัวแรกที่เจอ" (ไม่มีคำว่า All แล้ว)
         Collider2D hitEnemy = Physics2D.OverlapCircle(attackPoint.position, attackRange, enemyLayers);
-
-        // 3. ถ้าฟันโดนศัตรู (hitEnemy ไม่เป็นความว่างเปล่า) ให้ลดเลือดตัวนั้นแค่ตัวเดียว
         if (hitEnemy != null)
         {
             hitEnemy.GetComponent<Enemy>().TakeDamage(attackDamage);
@@ -122,22 +118,20 @@ public class PlayerMovement2D : MonoBehaviour
 
         }
 
-        if (collision.gameObject.CompareTag("IcePlatform"))
-        {
-            onIce = true; // บอกสคริปต์ว่ายืนบนน้ำแข็งแล้วนะ (หยุดโค้ดเดิน ปล่อยแท่นผลัก)
-        }
+        //if (collision.gameObject.CompareTag("IcePlatform"))
+        //{
+        //    onIce = true; 
+        //}
     }
 
    
-
-    // พอเท้าหลุดออกจากแท่นน้ำแข็ง (กระโดด หรือ ตกขอบ)
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("IcePlatform"))
-        {
-            onIce = false; // กลับมาเดินปกติได้
-        }
-    }
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("IcePlatform"))
+    //    {
+    //        onIce = false; 
+    //    }
+    //}
 
 
 

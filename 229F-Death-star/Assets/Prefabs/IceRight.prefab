@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 7306793360640098354}
   - component: {fileID: 7626031577620211158}
   - component: {fileID: 8055852901786803475}
-  - component: {fileID: 865747078491495522}
   m_Layer: 0
   m_Name: IceRight
-  m_TagString: IcePlatform
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,7 +84,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -856085545168688419, guid: 841f6de9c9224214aba4179d583e96be, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.78944397, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -138,7 +137,7 @@ BoxCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0.05683422, y: -0.085250705}
@@ -153,21 +152,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5.4979706, y: 0.65088004}
   m_EdgeRadius: 0
---- !u!252 &865747078491495522
-SurfaceEffector2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4261397098308714751}
-  m_Enabled: 1
-  m_UseColliderMask: 1
-  m_ColliderMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Speed: 5
-  m_SpeedVariation: 0
-  m_ForceScale: 1
-  m_UseContactForce: 0
-  m_UseFriction: 1
-  m_UseBounce: 1

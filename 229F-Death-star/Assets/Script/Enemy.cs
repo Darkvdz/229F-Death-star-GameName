@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        Debug.Log("ศัตรูโดนโจมตี! เลือดเหลือ: " + currentHealth);
+        Debug.Log("Enemy was Attacked! Current HP: " + currentHealth);
 
       
         if (currentHealth <= 0)
@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("ศัตรูตายแล้ว!");
+        Debug.Log("Enemy Die");
         Destroy(gameObject);
     }
 }

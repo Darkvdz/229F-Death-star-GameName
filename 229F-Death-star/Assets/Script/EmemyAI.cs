@@ -2,32 +2,46 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    public Transform player; 
+    public Transform player;
     public float moveSpeed = 2f;
-    public float enemyEyeRange = 8f; 
+    public float enemyEyeRange = 8f;
     public float shootRange = 5f;
 
-    public GameObject bulletPrefab; 
+    public GameObject bulletPrefab;
     public Transform firePoint;
-    public float fireRate = 2f; 
+    public float fireRate = 2f;
 
     [Header("Projectile")]
-    public float heightMin = 2f; 
-    public float heightMax = 4f; 
+    public float heightMin = 2f;
+    public float heightMax = 4f;
 
     private float nextFireTime = 0f;
     private bool isFacingRight = true;
 
+    // ?? 1. เพิ่มฟังก์ชัน Start เพื่อหา Player อัตโนมัติเวลาถูกสปอว์น ??
+    void Start()
+    {
+        // ค้นหาวัตถุที่มี Tag ว่า "Player" ในฉาก
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null)
+        {
+            player = playerObj.transform;
+        }
+        else
+        {
+            Debug.LogWarning("EnemyAI: หา Player ไม่เจอ! ลืมตั้ง Tag ให้ Player หรือเปล่า?");
+        }
+    }
+
     void Update()
     {
-        if (player == null) return;
+        if (player == null) return; // ถ้าหาไม่เจอจริงๆ ถึงจะยืนนิ่ง
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         if (distanceToPlayer <= enemyEyeRange && distanceToPlayer > shootRange)
         {
             ChasePlayer();
         }
-       
         else if (distanceToPlayer <= shootRange)
         {
             LookAtPlayer();
@@ -99,12 +113,11 @@ public class EnemyAI : MonoBehaviour
         goRb.AddForce(forceToApply, ForceMode2D.Impulse);
     }
 
-   
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.yellow;//VisionEYE
-        Gizmos.DrawWireSphere(transform.position, enemyEyeRange); 
-        Gizmos.color = Color.red;//VisionShoot
-        Gizmos.DrawWireSphere(transform.position, shootRange); 
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, enemyEyeRange);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, shootRange);
     }
 }

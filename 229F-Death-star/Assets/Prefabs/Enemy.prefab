@@ -31,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.43075, y: 1.88298, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2248493058050538763}
   m_Father: {fileID: 0}
@@ -196,13 +196,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
   player: {fileID: 8947860595832966412, guid: 79bd708ab9256b54bb7b1e343baf35bd, type: 3}
   moveSpeed: 2
-  enemyEyeRange: 8
-  shootRange: 5
+  enemyEyeRange: 2.41
+  shootRange: 1.93
   bulletPrefab: {fileID: 8050424847253734221, guid: 6c66a5e30c3a59c439e237299c17f6e5, type: 3}
   firePoint: {fileID: 2248493058050538763}
   fireRate: 10
-  heightMin: 2
-  heightMax: 5
+  heightMin: 3
+  heightMax: 4
 --- !u!1 &4218435978190295060
 GameObject:
   m_ObjectHideFlags: 0
