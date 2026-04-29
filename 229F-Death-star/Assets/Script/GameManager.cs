@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject winPanel;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject creditsPanel;
+    [SerializeField] private TextMeshProUGUI finalScoreText;
 
 
     [Header("Audio Settings")]
@@ -81,6 +82,11 @@ public class GameManager : MonoBehaviour
         {
             if (gameOverPanel != null) gameOverPanel.SetActive(true);
             if (audioSource != null && loseSound != null) audioSource.PlayOneShot(loseSound, 0.25f);
+
+            if (finalScoreText != null)
+            {
+                finalScoreText.text = "Your Score: " + currentScore;
+            }
         }
     }
 
