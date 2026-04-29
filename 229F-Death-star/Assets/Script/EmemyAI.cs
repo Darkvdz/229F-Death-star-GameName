@@ -95,16 +95,17 @@ public class EnemyAI : MonoBehaviour
     Vector2 CalculateArcVelocity(Vector2 start, Vector2 end, float height)
     {
         float gravity = Mathf.Abs(Physics2D.gravity.y);
+
         float displacementY = end.y - start.y;
-        Vector2 displacementX = new Vector2(end.x - start.x, 0);
+        float displacementX = end.x - start.x;
 
-        float h = Mathf.Max(height, displacementY + 0.5f);
+        // โค้ดคำนวณเวลาและความเร็วตามสูตรของอาจารย์
+        float time = Mathf.Sqrt(2 * height / gravity) + Mathf.Sqrt(2 * (displacementY - height) / gravity * -1);
 
-        float time = Mathf.Sqrt(2 * h / gravity) + Mathf.Sqrt(2 * Mathf.Abs(displacementY - h) / gravity);
-        float velocityY = Mathf.Sqrt(2 * gravity * h);
-        Vector2 velocityX = displacementX / time;
+        float velocityY = (displacementY / time) + (0.5f * Mathf.Abs(Physics2D.gravity.y) * time);
+        float floatVelocityX = displacementX / time;
 
-        return velocityX + Vector2.up * velocityY;
+        return new Vector2(floatVelocityX, velocityY);
     }
 
     void Shoot()
@@ -116,14 +117,13 @@ public class EnemyAI : MonoBehaviour
         GameObject go = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         Rigidbody2D goRb = go.GetComponent<Rigidbody2D>();
 
-        float height = Random.Range(heightMin, heightMax);
+        float targetDisplacementY = player.position.y - firePoint.position.y;
+        float randomHeight = Random.Range(heightMin, heightMax);
+        float safeHeight = Mathf.Max(randomHeight, targetDisplacementY + 0.5f);
 
-        Vector2 velocity = CalculateArcVelocity(firePoint.position, player.position, height);
+        Vector2 velocity = CalculateArcVelocity(firePoint.position, player.position, safeHeight);
 
-        float mass = goRb.mass;
-        Vector2 forceToApply = mass * velocity;
-
-        goRb.AddForce(forceToApply, ForceMode2D.Impulse);
+        goRb.linearVelocity = velocity;
     }
 
     private void OnDrawGizmosSelected()
