@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3e70e23d12901d40a6b48dd19c7b15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  maxHealth: 1500
+  maxHealth: 1000
   healthBar: {fileID: 0}
   playerSprites: []
   damageColor: {r: 1, g: 0.2705882, b: 0, a: 1}
