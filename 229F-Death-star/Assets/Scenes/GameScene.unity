@@ -600,14 +600,14 @@ PrefabInstance:
     - target: {fileID: 2696160854190785637, guid: 084c2f5ee6d29a247b1c117889ffada3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 813165465}
     - target: {fileID: 2696160854190785637, guid: 084c2f5ee6d29a247b1c117889ffada3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayGame
+      value: GoToMainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 2696160854190785637, guid: 084c2f5ee6d29a247b1c117889ffada3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MainMenu, Assembly-CSharp
+      value: PauseMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2950742562041067864, guid: 084c2f5ee6d29a247b1c117889ffada3, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -624,6 +624,22 @@ PrefabInstance:
     - target: {fileID: 3374511078554261703, guid: 084c2f5ee6d29a247b1c117889ffada3, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3390638554275195698, guid: 084c2f5ee6d29a247b1c117889ffada3, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 2.8008
+      objectReference: {fileID: 0}
+    - target: {fileID: 3390638554275195698, guid: 084c2f5ee6d29a247b1c117889ffada3, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -4.2011
+      objectReference: {fileID: 0}
+    - target: {fileID: 3390638554275195698, guid: 084c2f5ee6d29a247b1c117889ffada3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.4003983
+      objectReference: {fileID: 0}
+    - target: {fileID: 3390638554275195698, guid: 084c2f5ee6d29a247b1c117889ffada3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.1005993
       objectReference: {fileID: 0}
     - target: {fileID: 3507267438126788274, guid: 084c2f5ee6d29a247b1c117889ffada3, type: 3}
       propertyPath: m_text
@@ -690,6 +706,10 @@ PrefabInstance:
     - target: {fileID: 4865854217232715501, guid: 084c2f5ee6d29a247b1c117889ffada3, type: 3}
       propertyPath: m_margin.z
       value: -130.77734
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865854217232715501, guid: 084c2f5ee6d29a247b1c117889ffada3, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4865854217232715501, guid: 084c2f5ee6d29a247b1c117889ffada3, type: 3}
       propertyPath: m_fontColor.b
@@ -786,18 +806,34 @@ PrefabInstance:
     - target: {fileID: 5871212145310435288, guid: 084c2f5ee6d29a247b1c117889ffada3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 813165465}
     - target: {fileID: 5871212145310435288, guid: 084c2f5ee6d29a247b1c117889ffada3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayGame
+      value: Resume
       objectReference: {fileID: 0}
     - target: {fileID: 5871212145310435288, guid: 084c2f5ee6d29a247b1c117889ffada3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MainMenu, Assembly-CSharp
+      value: PauseMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6099058062758287588, guid: 084c2f5ee6d29a247b1c117889ffada3, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6806453073423511173, guid: 084c2f5ee6d29a247b1c117889ffada3, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1.7561
+      objectReference: {fileID: 0}
+    - target: {fileID: 6806453073423511173, guid: 084c2f5ee6d29a247b1c117889ffada3, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -2.9268
+      objectReference: {fileID: 0}
+    - target: {fileID: 6806453073423511173, guid: 084c2f5ee6d29a247b1c117889ffada3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.87799835
+      objectReference: {fileID: 0}
+    - target: {fileID: 6806453073423511173, guid: 084c2f5ee6d29a247b1c117889ffada3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.4633999
       objectReference: {fileID: 0}
     - target: {fileID: 6850186306429751543, guid: 084c2f5ee6d29a247b1c117889ffada3, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1026,8 +1062,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.7316971, y: -2.7803993}
+  m_SizeDelta: {x: 1.4634, y: -5.5609}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &440680723
 MonoBehaviour:
@@ -1897,6 +1933,28 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8060960088481551063, guid: 084c2f5ee6d29a247b1c117889ffada3, type: 3}
   m_PrefabInstance: {fileID: 312220599}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &813165465 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2636201775938760725, guid: 084c2f5ee6d29a247b1c117889ffada3, type: 3}
+  m_PrefabInstance: {fileID: 312220599}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ad1ae874f28f042a549b5fbd44ab1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
+--- !u!114 &813165466 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 547317414671110314, guid: 084c2f5ee6d29a247b1c117889ffada3, type: 3}
+  m_PrefabInstance: {fileID: 312220599}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb4aecf575610146baaa50559375ff2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
 --- !u!1 &826120213
 GameObject:
   m_ObjectHideFlags: 0
@@ -2794,9 +2852,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: PlayGame
+      - m_Target: {fileID: 813165466}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
