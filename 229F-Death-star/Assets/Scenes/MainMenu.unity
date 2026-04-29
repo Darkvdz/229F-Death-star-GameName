@@ -2024,7 +2024,7 @@ PrefabInstance:
       objectReference: {fileID: 71356543}
     - target: {fileID: 205433144082279973, guid: cf67c829902d86742866c99c2c4a9b79, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayGame
+      value: QuitGame
       objectReference: {fileID: 0}
     - target: {fileID: 1326864789427759484, guid: cf67c829902d86742866c99c2c4a9b79, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2100,7 +2100,7 @@ PrefabInstance:
       objectReference: {fileID: 71356543}
     - target: {fileID: 1631523220891640552, guid: cf67c829902d86742866c99c2c4a9b79, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayGame
+      value: OpenCredits
       objectReference: {fileID: 0}
     - target: {fileID: 2172444360683536057, guid: cf67c829902d86742866c99c2c4a9b79, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
