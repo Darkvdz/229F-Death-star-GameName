@@ -1,0 +1,21 @@
+using UnityEngine;
+
+public class Lava : MonoBehaviour
+{
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            PlayerHealth playerHealth = collision.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(9999);
+            }
+        }
+        
+        else if (collision.CompareTag("Enemy"))
+        {
+            Destroy(collision.gameObject);
+        }
+    }
+}

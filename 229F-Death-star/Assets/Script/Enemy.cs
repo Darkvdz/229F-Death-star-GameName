@@ -5,6 +5,7 @@ public class Enemy : MonoBehaviour
     public int maxHealth = 100;
     private int currentHealth;
 
+    public int scoreValue = 10;
     void Start()
     {
         currentHealth = maxHealth;
@@ -25,6 +26,12 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         Debug.Log("Enemy Die");
+
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.UpdateScore(scoreValue);
+        }
+
         Destroy(gameObject);
     }
 }

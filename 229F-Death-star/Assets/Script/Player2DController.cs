@@ -10,10 +10,10 @@ public class PlayerMovement2D : MonoBehaviour
     public float jumpForce = 15f;
 
     [Header("Combat Settings")]
-    public Transform attackPoint; // จุดศูนย์กลางวงกลมโจมตี
-    public float attackRange = 0.5f; // รัศมีวงกลมโจมตี
-    public LayerMask enemyLayers; // ตัวกรองว่าอะไรคือศัตรู
-    public int attackDamage = 40; // ดาเมจต่อการฟัน 1 ครั้ง
+    public Transform attackPoint; 
+    public float attackRange = 0.5f;
+    public LayerMask enemyLayers;
+    public int attackDamage = 40;
 
     private InputAction moveAction;
     private InputAction jumpAction;
@@ -26,6 +26,9 @@ public class PlayerMovement2D : MonoBehaviour
 
     private int jumpCount;
     private bool isGrounded = false;
+
+    public AudioSource audioSource; 
+    public AudioClip swordSound;    
 
     private void Awake()
     {
@@ -100,6 +103,12 @@ public class PlayerMovement2D : MonoBehaviour
         {
             hitEnemy.GetComponent<Enemy>().TakeDamage(attackDamage);
         }
+
+        if (audioSource != null && swordSound != null)
+        {
+            audioSource.PlayOneShot(swordSound, 1.0f); 
+        }
+
     }
 
 

@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject winPanel;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject creditsPanel;
+
 
     [Header("Audio Settings")]
     [SerializeField] private AudioSource audioSource;
@@ -41,7 +43,7 @@ public class GameManager : MonoBehaviour
         {
             audioSource.clip = bgmSound;
             audioSource.loop = true;
-            audioSource.volume = 0.08f;
+            audioSource.volume = 0.06f;
             audioSource.Play();
         }
     }
@@ -95,5 +97,11 @@ public class GameManager : MonoBehaviour
     public void CloseCredits()
     {
         if (creditsPanel != null) creditsPanel.SetActive(false);
+    }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
